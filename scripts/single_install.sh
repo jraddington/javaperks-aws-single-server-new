@@ -8,6 +8,9 @@ echo "Pre-installation tasks..."
 echo 'libc6 libraries/restart-without-asking boolean true' | sudo debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 echo "...installing Ubuntu updates"
+# apt-get -y remove grub-pc
+# apt-get -y install grub-pc
+# update-grub
 sudo apt-get -y update > /dev/null 2>&1
 sudo apt-get -y upgrade > /dev/null 2>&1
 
@@ -33,7 +36,7 @@ sudo apt-get install -y \
     python3-dev \
     dnsmasq \
     mysql-client \
-    default-libmysqlclient-dev \
+    libmariadbclient-dev \
     npm \
     docker.io \
     openjdk-11-jre \
